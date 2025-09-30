@@ -9,8 +9,8 @@ client = mqtt.Client(
 
 # 连接到 MQTT 服务器
 client.username_pw_set("EE17G1eA", "EE17G1eB")
-client.connect("10.0.7.136", 1883)
-# client.connect("192.168.2.220", 1883)
+# client.connect("10.0.7.136", 1883)
+client.connect("192.168.2.220", 1883)
 
 # 要发送的字典类型的 payload
 config = dict()
@@ -75,20 +75,9 @@ config = dict()
 #     "libraryReverseX": False
 # }
 
-config["02049FC90BBC"] = {
-    "robotLabel": "M603",
-    "footOriginOffset": 30,
-    "maximumTargetX": 15000,
-    "minimumTargetX": -10,
-    "maximumTargetZ": 7000,
-    "minimumTargetZ": -10,
-    "libraryReverseX": False,
-    "dmCodeSize": 225
-}
-
-# config["02049FC92C88"] = {
-#     "robotLabel": "M-A1-S1-1",
-#     "footOriginOffset": 103,
+# config["02049FC90BBC"] = {
+#     "robotLabel": "M603",
+#     "footOriginOffset": 30,
 #     "maximumTargetX": 15000,
 #     "minimumTargetX": -10,
 #     "maximumTargetZ": 7000,
@@ -96,6 +85,17 @@ config["02049FC90BBC"] = {
 #     "libraryReverseX": False,
 #     "dmCodeSize": 225
 # }
+
+config["02049FC92C88"] = {
+    "robotLabel": "M-A1-S1-1",
+    "footOriginOffset": 103,
+    "maximumTargetX": 5420,     #最远列
+    "minimumTargetX": -10,
+    "maximumTargetZ": 7000,     #顶层
+    "minimumTargetZ": -500,     #接驳位
+    "libraryReverseX": False,
+    "dmCodeSize": 225
+}
 
 # config["C82E18C82B2C"] = {
 #     "robotLabel": "M13216",

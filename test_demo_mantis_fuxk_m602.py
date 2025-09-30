@@ -11,12 +11,29 @@ ENABLE_LHD = True
 FULL_VEL_X = 1500
 FULL_VEL_Z = 1000
 
-FULL_ACC = 500
+FULL_ACC = 1000
 
+#双深拉箱参数
+# test_cases_load = [
+#     ["ARTICULATE_FINGERS", 0, 0, 0, 0, 0, 0, 0, 0],
+#     ["MOVE_ARMS", -1420, 1000, 1000],
+#     ["ARTICULATE_FINGERS", 9000, 0, 0, 0, 9000, 0, 0, 0],
+#     ["MOVE_ARMS", 20, 800, 500],
+#     ["MOVE_ARMS", 0, 1000, 1000],
+#     ["ARTICULATE_FINGERS", 0, 0, 0, 0, 0, 0, 0, 0],
+# ]
 
+# test_cases_unload = [
+#     ["ARTICULATE_FINGERS", 0, 0, 9000, 0, 0, 0, 9000, 0],
+#     ["MOVE_ARMS", -1460, 800, 500],
+#     ["MOVE_ARMS", 0, 1000, 1000],
+#     ["ARTICULATE_FINGERS", 0, 0, 0, 0, 0, 0, 0, 0],
+# ]
+
+#单深拉箱参数
 test_cases_load = [
     ["ARTICULATE_FINGERS", 0, 0, 0, 0, 0, 0, 0, 0],
-    ["MOVE_ARMS", -1420, 1000, 1000],
+    ["MOVE_ARMS", -760, 1000, 1000],
     ["ARTICULATE_FINGERS", 9000, 0, 0, 0, 9000, 0, 0, 0],
     ["MOVE_ARMS", 20, 800, 500],
     ["MOVE_ARMS", 0, 1000, 1000],
@@ -25,23 +42,28 @@ test_cases_load = [
 
 test_cases_unload = [
     ["ARTICULATE_FINGERS", 0, 0, 9000, 0, 0, 0, 9000, 0],
-    ["MOVE_ARMS", -1460, 800, 500],
+    ["MOVE_ARMS", -800, 800, 500],
     ["MOVE_ARMS", 0, 1000, 1000],
     ["ARTICULATE_FINGERS", 0, 0, 0, 0, 0, 0, 0, 0],
 ]
 
-
 def load_shelf_hz_path() -> list[tuple[Cell, bool, bool, int]]:
-    # C1 = Cell(0, 0)
+    C1 = Cell(0, 0)
     # C2 = Cell(4670, 6000)
-    C1 = Cell(0, 297)
-    C2 = Cell(0, 297)
+    # C1 = Cell(500, 0)
+    # C1 = Cell(2710,4400)
+    C2 = Cell(5420,6400) #第十列 第17层
+    # C2 = Cell(500, 0)
+    # C2 = Cell(0, 0)
+    # C2 = Cell(170,-470)
     return [
         # cell, load/unload, distance
-        (C1, True),
+        # (C1, True),
         # (C2, False),
-        # (C2, True),
+        (C2, True),
+        # (C2, False),
         (C1, False),
+        # (C1, True),
         #  (C1, False),
         #  (C2, True),
     ]
